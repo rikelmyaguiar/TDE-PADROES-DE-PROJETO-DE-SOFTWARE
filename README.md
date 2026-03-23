@@ -9,7 +9,7 @@ Simula um sistema de transporte aéreo com diferentes tipos de aviões: Cargueir
 
 Sobre o Projeto
 -----------------
-Este projeto faz parte de uma atividade de TDE da disciplina de Programação para Banco de Dados e Padrões de Projeto de Software.  
+Este projeto faz parte do TDE da disciplina de Padrões de Projeto de Software.  
 Objetivo: demonstrar como os princípios SOLID + Factory Method tornam o código mais organizado, flexível e manutenível.
 
 ---
