@@ -98,7 +98,9 @@ Pré-requisitos:
 Passos:
 
 git clone https://github.com/rikelmyaguiar/TDE-PADROES-DE-PROJETO-DE-SOFTWARE.git
+
 cd TDE-PADROES-DE-PROJETO-DE-SOFTWARE
+
 dotnet run
 
 ------------------------------------------------------------
@@ -127,28 +129,16 @@ Tempo estimado: 1.0 horas
 
 ------------------------------------------------------------
 
-Possíveis Melhorias
---------------------
-
-- Implementar padrão Abstract Factory
-- Adicionar persistência em banco de dados
-- Criar sistema de rotas e destinos
-- Adicionar interface gráfica
-- Implementar testes automatizados
-
-------------------------------------------------------------
-
 Tecnologias
 ---------------
 
 - C#
 - .NET 6+
-- Programação Orientada a Objetos
 
 ------------------------------------------------------------
 
 Autor
 ------------
 
-Rikelmy Aguiar  
-Projeto acadêmico — TDE de Padrões de Projeto de Software
+Adriano Rikelmy Aguiar da Silva - 5° Período  
+TDE de Padrões de Projeto de Software - Professor: Marcos Gomes da Silva Rocha
