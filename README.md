@@ -1,108 +1,154 @@
-# ﻿Sistema de Transporte Aéreo — SOLID + Factory Method em C# 
+Sistema de Transporte Aéreo — SOLID + Factory Method em C#
 
 Descrição
 ------------
 Aplicação prática desenvolvida em C# com foco na refatoração de código aplicando os cinco princípios SOLID e o padrão criacional Factory Method.  
-Simula um sistema de transporte aéreo com diferentes tipos de aviões: Cargueiro, Passageiro e Militar, com cálculo de tempo estimado de voo.
+O sistema simula operações de transporte aéreo com diferentes tipos de aviões: Cargueiro, Passageiro e Militar, incluindo cálculo de tempo estimado de voo.
 
----
+------------------------------------------------------------
 
 Sobre o Projeto
 -----------------
-Este projeto faz parte do TDE da disciplina de Padrões de Projeto de Software.  
-Objetivo: demonstrar como os princípios SOLID + Factory Method tornam o código mais organizado, flexível e manutenível.
+Este projeto foi desenvolvido como parte do TDE da disciplina de Padrões de Projeto de Software.  
 
----
+O objetivo é demonstrar, na prática, como a aplicação dos princípios SOLID combinada com o padrão Factory Method melhora a organização, flexibilidade e manutenção do código.
+
+------------------------------------------------------------
 
 Arquitetura / Estrutura
 -------------------------
 SistemaAereo/
 │
-├── IAviao.cs           → Interface de contrato para todos os aviões
+├── IAviao.cs           → Interface (contrato para todos os aviões)
 ├── AviaoCargueiro.cs   → Implementação de avião cargueiro
 ├── AviaoPassageiro.cs  → Implementação de avião de passageiros
 ├── AviaoMilitar.cs     → Implementação de avião militar
-├── AviaoFactory.cs     → Factory Method — cria os aviões conforme tipo
-├── Configuracao.cs     → Singleton — guarda configurações globais
-└── Program.cs          → Interação com o usuário (console)
+├── AviaoFactory.cs     → Factory Method (criação dos objetos)
+├── Configuracao.cs     → Singleton (configurações globais)
+└── Program.cs          → Interação com o usuário
 
----
+------------------------------------------------------------
+
+Problema Sem Uso de SOLID
+----------------------------
+Sem a aplicação dos princípios SOLID e padrões de projeto, o sistema apresentaria:
+
+- Alto acoplamento (uso direto de "new")
+- Dificuldade de manutenção
+- Código rígido (difícil de expandir)
+- Violação do princípio Open/Closed
+- Duplicação de lógica
+
+Isso tornaria o sistema difícil de evoluir e propenso a erros.
+
+------------------------------------------------------------
 
 Princípios SOLID Aplicados
 ----------------------------
+
 S – Single Responsibility:
-  Cada classe tem responsabilidade única (interface, transporte, configuração)
+Cada classe possui uma única responsabilidade:
+- Classes de avião → transporte
+- Factory → criação de objetos
+- Configuração → dados globais
 
 O – Open/Closed:
-  Adicionar novos tipos de avião exige apenas criar uma nova classe, sem alterar as existentes
+O sistema está aberto para extensão e fechado para modificação.
+
+Para adicionar um novo tipo de avião:
+- Criar nova classe
+- Implementar IAviao
+- Ajustar a fábrica
 
 L – Liskov Substitution:
-  O código cliente depende da interface IAviao, qualquer avião pode ser substituído sem quebrar o fluxo
+Qualquer classe que implementa IAviao pode substituir outra sem quebrar o sistema.
 
 I – Interface Segregation:
-  IAviao contém apenas o método necessário para transporte, evitando métodos desnecessários
+A interface IAviao contém apenas o necessário:
+void Transportar(string tipo, int quantidade);
 
 D – Dependency Inversion:
-  O código principal depende de abstrações (IAviao), não de implementações concretas
+O sistema depende de abstrações (IAviao), e não de implementações concretas.
 
----
+------------------------------------------------------------
 
 Factory Method
 ----------------
-Classe AviaoFactory encapsula toda a criação de objetos:
+O padrão Factory Method foi aplicado na classe AviaoFactory, responsável por encapsular a criação dos objetos.
+
+Exemplo:
 
 IAviao aviao = AviaoFactory.CriarAviao("cargueiro");
 aviao.Transportar("Carga pesada", 150);
 
+Benefícios:
 
-O código cliente **não usa `new` diretamente**, garantindo baixo acoplamento.
+- Baixo acoplamento
+- Centralização da criação de objetos
+- Facilidade de manutenção
+- Facilidade de expansão
 
----
+------------------------------------------------------------
 
 Como Executar
 ----------------
 Pré-requisitos:
-- .NET SDK 6.0+
+- .NET SDK 6.0 ou superior
 
 Passos:
 
-1️ Clone o repositório
-   git clone https://github.com/rikelmyaguiar/TDE-PADROES-DE-PROJETO-DE-SOFTWARE.git
+git clone https://github.com/rikelmyaguiar/TDE-PADROES-DE-PROJETO-DE-SOFTWARE.git
+cd TDE-PADROES-DE-PROJETO-DE-SOFTWARE
+dotnet run
 
-2️ Acesse a pasta do projeto
-   cd TRANSPORTE-AEREO
+------------------------------------------------------------
 
-3️ Execute o projeto
-   dotnet run
+Exemplo de Execução
+--------------------
 
----
+=== Sistema de Transporte Aéreo ===
 
-Saída Esperada
------------------
-Exemplo de execução:
+Tipos disponíveis:
+1 - Cargueiro
+2 - Passageiro
+3 - Militar
 
-=== Sistema de Transporte Aéreo - Logistica Aérea XYZ ===
-Tipos de avião disponíveis: Cargueiro, Passageiro, Militar
-Digite o tipo de avião que deseja usar:
-cargueiro
+Escolha o tipo de avião:
+1
+
 Peso da carga? (1 - leve, 2 - pesada, 3 - muito pesada)
 2
-Digite a quantidade de cargas:
+
+Quantidade:
 500
-Transportando 500 unidades de 'Carga nível 2' no avião CARGUEIRO.
-Tempo estimado de transporte: 1.0 horas
-Operação finalizada. Pressione qualquer tecla para sair...
 
+Transportando 500 unidades no avião CARGUEIRO
+Tempo estimado: 1.0 horas
 
----
+------------------------------------------------------------
+
+Possíveis Melhorias
+--------------------
+
+- Implementar padrão Abstract Factory
+- Adicionar persistência em banco de dados
+- Criar sistema de rotas e destinos
+- Adicionar interface gráfica
+- Implementar testes automatizados
+
+------------------------------------------------------------
 
 Tecnologias
 ---------------
-- C#  
-- .NET 6+
 
----
+- C#
+- .NET 6+
+- Programação Orientada a Objetos
+
+------------------------------------------------------------
 
 Autor
 ------------
-Adriano Rikelmy Aguiar da Silva - 5° Período TDE Padrões de Projeto de Software — Professor: Marcos Gomes da Silva Rocha
+
+Rikelmy Aguiar  
+Projeto acadêmico — TDE de Padrões de Projeto de Software
