@@ -15,17 +15,18 @@ O objetivo é demonstrar, na prática, como a aplicação dos princípios SOLID 
 
 ------------------------------------------------------------
 
-Arquitetura / Estrutura
--------------------------
-SistemaAereo/
-│
-├── IAviao.cs           → Interface (contrato para todos os aviões)
-├── AviaoCargueiro.cs   → Implementação de avião cargueiro
-├── AviaoPassageiro.cs  → Implementação de avião de passageiros
-├── AviaoMilitar.cs     → Implementação de avião militar
-├── AviaoFactory.cs     → Factory Method (criação dos objetos)
-├── Configuracao.cs     → Singleton (configurações globais)
-└── Program.cs          → Interação com o usuário
+## 🗂️ Arquitetura / Estrutura
+
+| Arquivo | Descrição |
+|---|---|
+| `SistemaAereo/` | Diretório raiz do projeto |
+| `├── IAviao.cs` | Interface — contrato para todos os aviões |
+| `├── AviaoCargueiro.cs` | Implementação de avião cargueiro |
+| `├── AviaoPassageiro.cs` | Implementação de avião de passageiros |
+| `├── AviaoMilitar.cs` | Implementação de avião militar |
+| `├── AviaoFactory.cs` | Factory Method — criação dos objetos |
+| `├── Configuracao.cs` | Singleton — configurações globais |
+| `└── Program.cs` | Interação com o usuário |
 
 ------------------------------------------------------------
 
